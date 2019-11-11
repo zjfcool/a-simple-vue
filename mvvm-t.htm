@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="person.name">
+        {{person.name}}
+        <div>{{person.age}}</div>
+        <div>{{nice}}</div>
+        <button v-on:click="change">饥渴难耐</button>
+    </div>
+    <script src="./mvvm-t.js"></script>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                person:{
+                    name:"东方不败",
+                    age:12
+                }
+            },
+            computed:{
+                nice(){
+                    return this.person.name+'nice'
+                }
+            },
+            methods: {
+                change(e){
+                    this.person.name = '我的大刀早已饥渴难耐'
+                }
+            },
+        })
+    </script>
+</body>
+</html>
